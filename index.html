@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Hub | GitHub Pages</title>
+    <meta
+      name="description"
+      content="Trang tong hop game tinh de deploy tren GitHub Pages"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <section id="loginGate" class="login-gate" aria-labelledby="loginTitle">
+      <article class="login-card">
+        <p class="eyebrow">Private Entry</p>
+        <h2 id="loginTitle">Dang Nhap De Vao Game Hub</h2>
+        <p class="login-copy">
+          Day la lop bao ve don gian bang tai khoan mock de tranh nguoi la truy
+          cap.
+        </p>
+
+        <form id="loginForm" class="login-form">
+          <label class="field">
+            <span>Username</span>
+            <input
+              id="usernameInput"
+              name="username"
+              type="text"
+              autocomplete="username"
+              required
+              placeholder="Vi du: admin"
+            />
+          </label>
+
+          <label class="field">
+            <span>Password</span>
+            <input
+              id="passwordInput"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+              placeholder="Nhap mat khau"
+            />
+          </label>
+
+          <button type="submit" class="login-button">Dang Nhap</button>
+          <p id="loginMessage" class="login-message" aria-live="polite"></p>
+        </form>
+      </article>
+    </section>
+
+    <div id="appShell" hidden>
+      <header class="top-auth" aria-label="Thong tin dang nhap">
+        <p class="signed-in-as">
+          Dang nhap voi <strong id="currentUserLabel">unknown</strong>
+        </p>
+        <button id="logoutButton" type="button" class="logout-button">
+          Logout
+        </button>
+      </header>
+
+      <header class="hero">
+        <p class="eyebrow">Static Portal</p>
+        <h1>Game Menu</h1>
+        <p class="hero-copy">Chọn các trò chơi ở đây nhé!!</p>
+      </header>
+
+      <main class="layout">
+        <section class="category-switcher" aria-label="Lua chon the loai">
+          <h2>Thể loại</h2>
+          <div id="categoryButtons" class="category-buttons"></div>
+        </section>
+
+        <section
+          id="categoryContent"
+          class="category-content"
+          aria-live="polite"
+        ></section>
+      </main>
+
+      <footer class="footer">
+        <p>Build once. Deploy free on GitHub Pages.</p>
+      </footer>
+    </div>
+
+    <template id="categoryTemplate">
+      <article class="category-panel">
+        <header class="panel-header">
+          <h3 class="panel-title"></h3>
+          <p class="panel-subtitle"></p>
+        </header>
+        <div class="blocks-grid"></div>
+      </article>
+    </template>
+
+    <template id="blockTemplate">
+      <section class="game-block">
+        <div class="block-head">
+          <h4 class="block-title"></h4>
+          <p class="block-description"></p>
+        </div>
+        <ul class="game-list"></ul>
+      </section>
+    </template>
+
+    <template id="gameTemplate">
+      <li>
+        <a class="game-card" target="_blank" rel="noopener noreferrer">
+          <div class="game-media">
+            <img class="game-image" alt="" loading="lazy" hidden />
+            <div class="game-placeholder" aria-hidden="true">G</div>
+          </div>
+          <div class="game-meta">
+            <span class="game-name"></span>
+            <span class="game-note"></span>
+          </div>
+          <span class="visit-label">Play</span>
+        </a>
+      </li>
+    </template>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
